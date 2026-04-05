@@ -1,0 +1,19 @@
+{
+  "name": "simple-todo-persistent",
+  "version": "1.0.0",
+  "description": "Persistent Todo app with MongoDB or Supabase using a database factory.",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.101.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-handlebars": "^7.1.2",
+    "mongodb": "^7.1.1",
+    "mongoose": "^8.13.2"
+  }
+}

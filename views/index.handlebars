@@ -1,0 +1,43 @@
+<section class="card">
+  <h1>Todo List</h1>
+  <form class="todo-form" action="/todos" method="POST">
+    <input type="text" name="text" placeholder="Add a new todo" required />
+    <button type="submit">Add</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2>All Todos</h2>
+  {{#if todos.length}}
+    <ul class="todo-list">
+      {{#each todos}}
+        <li class="todo-item">
+          <div class="todo-main">
+            <div class="todo-left">
+              <form action="/todos/{{id}}/toggle" method="POST">
+                <button class="toggle" type="submit">
+                  {{#if completed}}✔{{else}}○{{/if}}
+                </button>
+              </form>
+              <span class="todo-text {{#if completed}}completed{{/if}}">{{text}}</span>
+            </div>
+            <div class="todo-actions">
+              <details class="update-details">
+                <summary class="toggle">Update</summary>
+                <form class="edit-form" action="/todos/{{id}}/update" method="POST">
+                  <input type="text" name="text" value="{{text}}" required />
+                  <button type="submit">Save</button>
+                </form>
+              </details>
+              <form action="/todos/{{id}}/delete" method="POST">
+                <button class="toggle danger" type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p class="empty">No todos yet. Add one above.</p>
+  {{/if}}
+</section>
